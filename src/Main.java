@@ -28,13 +28,13 @@ public class Main {
         Companhia companhia = new Companhia();
         System.out.println("---------------------------");
         System.out.println("*Cadastrar companhia*");
-        System.out.println("Informe o CNPJ da empresa: ");
+        System.out.println("\nInforme o CNPJ da empresa: ");
         companhia.setCNPJ(main.reader.readLine());
 
-        System.out.println("Informe o nome da empresa: ");
+        System.out.println("\nInforme o nome da empresa: ");
         companhia.setNome(main.reader.readLine());
 
-        System.out.println("Informe o telefone da empresa: ");
+        System.out.println("\nInforme o telefone da empresa: ");
         companhia.setTelefone(main.reader.readLine());
 
         main.setCompanhia(companhia);
@@ -56,18 +56,36 @@ public class Main {
             switch (opcao)
             {
                 case "1":
-                    this.cadastrarVoo(companhia, reader);
+                    this.menuCompanhia();
                     break;
                 case "2":
+                    this.menuVoo();
                     break;
                 case "3":
-                    break;
-                case "4":
                     break;
                 default:
                     break;
                 }
         }
+    }
+
+    public void menuCompanhia(Companhia companhia, BufferedReader reader)
+    {
+        this.cadastrarVoo(companhia, reader);
+    }
+
+    public void menuPassageiro()
+    {
+        System.out.println("---------------------------");
+        System.out.println("O que gostaria de fazer?");
+        System.out.println("1 - Cadastrar passageiro");
+        System.out.println("2 - Mostrar todos os passageiros");
+        System.out.println("3 - Ver dados de passageiro específico");
+    }
+
+    public void menuVoo()
+    {
+
     }
 
     public void cadastrarVoo(Companhia companhia, BufferedReader reader) throws Exception
@@ -76,17 +94,31 @@ public class Main {
         System.out.println("Digite a data do voo");
         Voo voo = new Voo();
         voo.setData(reader.readLine());
+        System.out.println("\nDigite o código do voo");
         voo.setCodigo(reader.readLine());
         companhia.setVoo(voo);
-        cadastrarPassageiro(voo);
+        cadastrarPassageiro(voo, reader);
     }
 
-    public void cadastrarPassageiro(Voo voo) throws Exception
+    public void cadastrarPassageiro(Voo voo, BufferedReader reader) throws Exception
     {
         System.out.println("---------------------------");
         System.out.println("Cadastro de passageiro: ");
-        System.out.println("Informe o nome: ");
+
         Passageiro passageiro = new Passageiro();
+        
+        System.out.println("\nInforme o nome: ");
+        passageiro.setNome(reader.readLine());
+
+        System.out.println("\nInforme o CPF: ");
+        passageiro.setCpf(reader.readLine());
+
+        System.out.println("\nInforme o passaporte: ");
+        passageiro.setPassaporte(reader.readLine());
+        System.out.println("\nInforme o telefone: ");
+        passageiro.setTelefone(reader.readLine());
+
+        voo.setPassageiro(passageiro);
     }
     /*
         TODO: 
