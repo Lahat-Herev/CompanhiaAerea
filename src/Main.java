@@ -81,6 +81,6 @@ public class Main {
 
     public void cadastrarPassageiro() throws Exception
     {
-
+        System.out.println("Teste");
     }
 }
