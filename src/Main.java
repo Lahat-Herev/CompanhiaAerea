@@ -77,10 +77,24 @@ public class Main {
         Voo voo = new Voo();
         voo.setData(reader.readLine());
         voo.setCodigo(reader.readLine());
+        companhia.setVoo(voo);
+        cadastrarPassageiro(voo);
     }
 
-    public void cadastrarPassageiro() throws Exception
+    public void cadastrarPassageiro(Voo voo) throws Exception
     {
-        System.out.println("Teste 1");
+        System.out.println("---------------------------");
+        System.out.println("Cadastro de passageiro: ");
+        System.out.println("Informe o nome: ");
+        Passageiro passageiro = new Passageiro();
     }
+    /*
+        TODO: 
+            Cadastrar passageiro: Quem o faz? 
+                Primeiro: o sistema cadastra uma companhia
+                Segundo: essa companhia cadastra um voo
+                Terceiro: esse voo cadastra seu(s) passageiro(s)
+            Separar o menu em 3: menuCompanhia, menuVoo, menuPassageiro
+                Criar um metodo menuPrincipal contendo os tres
+    */
 }
